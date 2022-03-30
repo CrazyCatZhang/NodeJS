@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/CrazyCatZhang/NodeJS#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "qs": "^6.10.3"
   }
 }

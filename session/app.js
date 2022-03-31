@@ -9,6 +9,7 @@ app.use(
     session({
         secret: 'itheima',
         resave: false,
+        cookie: {maxAge:15000},
         saveUninitialized: true,
     })
 )
@@ -24,12 +25,12 @@ app.post('/api/login', (req, res) => {
     if (req.body.username !== 'admin' || req.body.password !== '000000') {
         return res.send({status: 1, msg: '登录失败'})
     }
-
+    console.log(req.session);
     // TODO_02：请将登录成功后的用户信息，保存到 Session 中
     // 注意：只有成功配置了 express-session 这个中间件之后，才能够通过 req 点出来 session 这个属性
     req.session.user = req.body // 用户的信息
     req.session.islogin = true // 用户的登录状态
-
+    console.log(req.sessionID);
     res.send({status: 0, msg: '登录成功'})
 })
 
